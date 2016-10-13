@@ -1,0 +1,7 @@
+{{#each model.errors.messages as |message|}}
+  <div class="error">
+    Global errors: {{message}}
+  </div>
+{{/each}}
+
+{{customer-form customer=model.customer errors=model.errors onSave=(action "save") }}

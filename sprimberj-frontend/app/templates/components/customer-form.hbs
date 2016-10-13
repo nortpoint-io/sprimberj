@@ -1,0 +1,29 @@
+<div class="form-group {{unless isFullNameValid 'has-error'}}">
+  <label for="full-name" class="required" title="This field is requeired">Full name</label>
+  {{input type="text" value=customer.fullName class="form-control" id="full-name" placeholder="Full name"}}
+  {{#unless isFullNameValid}}
+  <span class="help-block">Full name is required</span>
+  {{/unless}}
+  
+  {{#each errors.fullName as |error|}}
+  <div class="error">
+    Error in field "{{error.field}}": {{error.message}}
+  </div>
+  {{/each}}
+</div>
+
+<div class="form-group {{unless isPhoneValid 'has-error'}}">
+  <label for="phone" class="required" title="This field is requeired">Phone</label>
+  {{input type="text" value=customer.phone class="form-control" id="phone" placeholder="Phone number"}}
+  {{#unless isPhoneValid}}
+  <span class="help-block">Phone number is required</span>
+  {{/unless}}
+  
+  {{#each errors.phone as |error|}}
+  <div class="error">
+    Error in field "{{error.field}}": {{error.message}}
+  </div>
+  {{/each}}  
+</div>
+
+<button {{action "save"}}>Save</button>
